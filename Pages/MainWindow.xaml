@@ -1,0 +1,92 @@
+﻿<Window x:Class="ExpertSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExpertSystem"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Экспертная система выбора домашнего животного"
+        MinHeight="800" 
+        MinWidth="1000"
+        Height="450" 
+        Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.ColumnSpan="4" 
+              Grid.Row="0" 
+              Height="25" 
+              VerticalAlignment="Top">
+            <MenuItem Header="Главное">
+                <MenuItem x:Name="menu_btn_start" 
+                          Header="Начать опрос" 
+                          Click="menu_btn_start_Click" ></MenuItem>
+                <MenuItem x:Name="menu_btn_history"
+                          Header="Посмотреть текущую историю ответов" 
+                          Click="menu_btn_history_Click" ></MenuItem>
+                <Separator />
+                <MenuItem x:Name="menu_btn_exit"
+                          Header="Выйти" 
+                          Click="menu_btn_exit_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Данные" >
+                <MenuItem Header="Работа с файлом" >
+                    <MenuItem x:Name="menu_btn_import"
+                              Click="menu_btn_import_Click"
+                              Header="Импорт из файла"></MenuItem>
+                    <MenuItem x:Name="menu_btn_export"
+                              Click="menu_btn_export_Click"
+                              Header="Экспорт в файл" ></MenuItem>
+                </MenuItem>
+                <MenuItem x:Name="menu_btn_admin"
+                          Header="Админ-панель" 
+                          Click="menu_btn_admin_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="menu_about" 
+                      Click="menu_about_Click" 
+                      Header="О программе" ></MenuItem>
+        </Menu>
+        <Image Grid.Row="1" 
+               x:Name="question_logo"
+               Grid.Column="1" 
+               Grid.ColumnSpan="2" 
+               Source="{StaticResource question_image}"/>
+        <Image Grid.Row="1" 
+               x:Name="answer_logo"
+               Stretch="Fill"
+               Grid.Column="1" 
+               Grid.ColumnSpan="2" />
+        <TextBlock x:Name="tb_question_text" 
+                   Grid.Row="2" 
+                   Grid.Column="1" 
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="24"
+                   Grid.ColumnSpan="2" />
+        <Button x:Name="btn_agree" 
+                Grid.Row="3" 
+                Grid.Column="1" 
+                Content="Да" 
+                FontSize="18" 
+                Margin="5" 
+                Click="btn_agree_Click" />
+        <Button x:Name="btn_disagree" 
+                Grid.Row="3" 
+                Grid.Column="2" 
+                Content="Нет" 
+                FontSize="18" 
+                Margin="5" 
+                Click="btn_disagree_Click" />
+    </Grid>
+</Window>
